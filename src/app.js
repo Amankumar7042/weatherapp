@@ -4,6 +4,7 @@ const hbs = require('hbs')
 const geoCode = require("./utils/geocode");
 const forecast = require("./utils/forecast");
 const app = express();
+const port = process.env.PORT || 3000
 
 
 
@@ -18,7 +19,7 @@ app.set('view engine', 'hbs');
 app.set('views',viewsPath);
 hbs.registerPartials(partialsPath)
 
-
+// https://weather-app-aman-7042.herokuapp.com/
 // setup static directory to serve
 app.use(express.static(publicDirectoryPath))
 
@@ -94,6 +95,6 @@ app.get('*',(req,res)=>{
 
 
 
-app.listen(3000,()=>{
-    console.log("server is up on port 3000")
+app.listen(port,()=>{
+    console.log("server is up on port "+ port)
 })
